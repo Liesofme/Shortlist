@@ -12,8 +12,5 @@ __pycache__/
 .vscode/
 .idea/
 
-# Output
-submission.csv
-
 # Exploration scripts (not part of submission)
 explore_*.py

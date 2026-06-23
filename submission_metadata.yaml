@@ -4,24 +4,23 @@
 # ============================================================================
 # Team identity
 # ============================================================================
-team_name: "redrob-ranker"
+team_name: "Billy Butcher"
 
 primary_contact:
-  name: "FILL_IN"          # Fill in your name
-  email: "FILL_IN"         # Fill in your email
-  phone: "FILL_IN"         # Fill in your phone
+  name: "Md Yasir Junaid"          
+  email: "123yasirjunaid123@gmail.com"
+  phone: "7091879993"
 
 team_members:
-  - name: "FILL_IN"
-    email: "FILL_IN"
-    role: "ML Engineer"
+    name: "Md Aatiq Arqam"
+    email: "aatiq13097@gmail.com"
 
 # ============================================================================
 # Code and reproducibility
 # ============================================================================
-github_repo: "FILL_IN"     # Fill in your GitHub repo URL
+github_repo: "https://github.com/Liesofme/Shortlist.git"     
 
-sandbox_link: "FILL_IN"    # Fill in your hosted sandbox URL
+sandbox_link: "FILL_IN"    
 
 reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./submission.csv"
 
