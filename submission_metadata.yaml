@@ -1,0 +1,78 @@
+# Redrob Hackathon — Submission Metadata
+# Filled from submission_metadata_template.yaml
+
+# ============================================================================
+# Team identity
+# ============================================================================
+team_name: "redrob-ranker"
+
+primary_contact:
+  name: "FILL_IN"          # Fill in your name
+  email: "FILL_IN"         # Fill in your email
+  phone: "FILL_IN"         # Fill in your phone
+
+team_members:
+  - name: "FILL_IN"
+    email: "FILL_IN"
+    role: "ML Engineer"
+
+# ============================================================================
+# Code and reproducibility
+# ============================================================================
+github_repo: "FILL_IN"     # Fill in your GitHub repo URL
+
+sandbox_link: "FILL_IN"    # Fill in your hosted sandbox URL
+
+reproduce_command: "python rank.py --candidates ./candidates.jsonl --out ./submission.csv"
+
+# ============================================================================
+# Compute environment
+# ============================================================================
+compute:
+  platform: "Windows PC"
+  cpu_cores: 8
+  ram_gb: 16
+  python_version: "3.10"
+  os: "Windows"
+  uses_gpu_for_inference: false
+  has_network_during_ranking: false
+  pre_computation_required: false
+  pre_computation_time_minutes: 0
+
+# ============================================================================
+# AI tools declaration
+# ============================================================================
+ai_tools_used:
+  - "Gemini (Antigravity agent)"
+
+ai_usage_summary: |
+  Used Gemini Antigravity agent for architecture discussion, code generation,
+  and iterative development of the scoring pipeline. All scoring logic was
+  designed from first principles based on the JD requirements and data
+  exploration. No candidate data was sent to any external LLM API during
+  ranking. Agent-generated code was reviewed and iterated with human judgment.
+
+# ============================================================================
+# Approach summary
+# ============================================================================
+methodology_summary: |
+  Deterministic rule-based ranker with explicit reasoning capture. Three-stage
+  pipeline: (1) coarse filter removes irrelevant titles and honeypots,
+  (2) weighted composite score from six components (career relevance 38%,
+  skills alignment 22%, keyword coverage 16%, experience fit 12%, education 7%,
+  location 5%), (3) multiplicative behavioral availability modifier (0.35-1.35x)
+  based on platform activity signals. Career component is decisive against
+  keyword-stuffer traps — title relevance and production evidence in career
+  descriptions outweigh raw skill-list matching. Consulting penalty is
+  recency-weighted. Honeypot detection uses conservative timeline-consistency
+  checks. Runtime is ~30 seconds for 100K candidates on CPU.
+
+# ============================================================================
+# Declarations
+# ============================================================================
+declarations:
+  read_submission_spec: true
+  code_is_original_work: true
+  no_collusion: true
+  honeypot_check_done: true
+  reproduction_tested: true
