@@ -1,0 +1,722 @@
+[
+  {
+    "id": "ideal_senior_ml",
+    "description": "Ideal candidate: Senior ML Engineer at a product company, 7 years, strong production + IR evidence",
+    "candidate": {
+      "candidate_id": "CAND_9000001",
+      "profile": {
+        "anonymized_name": "Test Candidate A",
+        "headline": "Senior ML Engineer | Search & Ranking | NLP | Production Systems",
+        "summary": "ML engineer with 7 years of experience building production ranking and retrieval systems. Built hybrid search pipelines combining BM25 with dense retrieval using sentence-transformers. Designed evaluation frameworks using NDCG and MRR for offline-to-online correlation. Strong Python and systems engineering background.",
+        "location": "Bangalore, Karnataka",
+        "country": "India",
+        "years_of_experience": 7.0,
+        "current_title": "Senior Machine Learning Engineer",
+        "current_company": "Flipkart",
+        "current_company_size": "10001+",
+        "current_industry": "E-commerce"
+      },
+      "career_history": [
+        {
+          "company": "Flipkart",
+          "title": "Senior Machine Learning Engineer",
+          "start_date": "2022-01-15",
+          "end_date": null,
+          "duration_months": 53,
+          "is_current": true,
+          "industry": "E-commerce",
+          "company_size": "10001+",
+          "description": "Led the search ranking team responsible for product retrieval and ranking across Flipkart's marketplace serving 200M+ users. Built a hybrid search system combining BM25 with dense retrieval using sentence-transformers and FAISS. Designed and deployed an embedding-based semantic search pipeline that improved NDCG@10 by 15%. Implemented A/B testing infrastructure for ranking experiments with automated regression detection. Managed embedding drift monitoring and index refresh pipelines processing 50M products."
+        },
+        {
+          "company": "Razorpay",
+          "title": "ML Engineer",
+          "start_date": "2019-06-01",
+          "end_date": "2021-12-31",
+          "duration_months": 31,
+          "is_current": false,
+          "industry": "Fintech",
+          "company_size": "1001-5000",
+          "description": "Built recommendation systems for merchant discovery and fraud detection models. Deployed real-time inference pipelines on Kubernetes serving 10K requests/second with p99 latency under 50ms. Implemented feature engineering pipelines using Spark and Airflow. Owned the ML evaluation framework including offline NDCG, MRR, and precision-recall metrics."
+        }
+      ],
+      "education": [
+        {
+          "institution": "IIT Bombay",
+          "degree": "M.Tech",
+          "field_of_study": "Computer Science",
+          "start_year": 2015,
+          "end_year": 2017,
+          "grade": "9.1 CGPA",
+          "tier": "tier_1"
+        }
+      ],
+      "skills": [
+        {"name": "Python", "proficiency": "expert", "endorsements": 45, "duration_months": 72},
+        {"name": "PyTorch", "proficiency": "advanced", "endorsements": 30, "duration_months": 48},
+        {"name": "FAISS", "proficiency": "advanced", "endorsements": 20, "duration_months": 36},
+        {"name": "Elasticsearch", "proficiency": "advanced", "endorsements": 25, "duration_months": 42},
+        {"name": "Sentence Transformers", "proficiency": "advanced", "endorsements": 15, "duration_months": 30},
+        {"name": "NLP", "proficiency": "expert", "endorsements": 35, "duration_months": 60},
+        {"name": "Information Retrieval", "proficiency": "advanced", "endorsements": 18, "duration_months": 48},
+        {"name": "A/B Testing", "proficiency": "advanced", "endorsements": 12, "duration_months": 36},
+        {"name": "Docker", "proficiency": "intermediate", "endorsements": 10, "duration_months": 24},
+        {"name": "Kubernetes", "proficiency": "intermediate", "endorsements": 8, "duration_months": 20}
+      ],
+      "certifications": [],
+      "languages": [
+        {"language": "English", "proficiency": "professional"},
+        {"language": "Hindi", "proficiency": "native"}
+      ],
+      "redrob_signals": {
+        "profile_completeness_score": 92.0,
+        "signup_date": "2025-06-01",
+        "last_active_date": "2026-05-28",
+        "open_to_work_flag": true,
+        "profile_views_received_30d": 45,
+        "applications_submitted_30d": 5,
+        "recruiter_response_rate": 0.82,
+        "avg_response_time_hours": 12.5,
+        "skill_assessment_scores": {"Python": 88.0, "NLP": 75.0},
+        "connection_count": 520,
+        "endorsements_received": 45,
+        "notice_period_days": 60,
+        "expected_salary_range_inr_lpa": {"min": 35.0, "max": 55.0},
+        "preferred_work_mode": "hybrid",
+        "willing_to_relocate": true,
+        "github_activity_score": 62.0,
+        "search_appearance_30d": 380,
+        "saved_by_recruiters_30d": 12,
+        "interview_completion_rate": 0.92,
+        "offer_acceptance_rate": 0.75,
+        "verified_email": true,
+        "verified_phone": true,
+        "linkedin_connected": true
+      }
+    }
+  },
+  {
+    "id": "keyword_stuffer_hr",
+    "description": "Keyword stuffer trap: HR Manager with AI-heavy skills list but zero relevant career history",
+    "candidate": {
+      "candidate_id": "CAND_9000002",
+      "profile": {
+        "anonymized_name": "Test Candidate B",
+        "headline": "HR Manager | People Operations | AI Enthusiast",
+        "summary": "HR professional with 6.5 years of experience managing talent acquisition and people operations. Recently interested in AI and have been exploring Python, NLP, and machine learning tools.",
+        "location": "Mumbai, Maharashtra",
+        "country": "India",
+        "years_of_experience": 6.5,
+        "current_title": "HR Manager",
+        "current_company": "Infosys",
+        "current_company_size": "10001+",
+        "current_industry": "IT Services"
+      },
+      "career_history": [
+        {
+          "company": "Infosys",
+          "title": "HR Manager",
+          "start_date": "2021-03-01",
+          "end_date": null,
+          "duration_months": 63,
+          "is_current": true,
+          "industry": "IT Services",
+          "company_size": "10001+",
+          "description": "Led talent acquisition for the AI and data science practice. Managed a team of 5 recruiters handling 200+ open positions. Designed interview frameworks and competency assessments for ML engineer roles. Built the HR analytics dashboard tracking hiring metrics."
+        },
+        {
+          "company": "TCS",
+          "title": "HR Executive",
+          "start_date": "2019-01-15",
+          "end_date": "2021-02-28",
+          "duration_months": 26,
+          "is_current": false,
+          "industry": "IT Services",
+          "company_size": "10001+",
+          "description": "Campus recruitment and employee engagement. Managed onboarding processes for 500+ new hires annually. Organized training programs and employee satisfaction surveys."
+        }
+      ],
+      "education": [
+        {
+          "institution": "Mumbai University",
+          "degree": "MBA",
+          "field_of_study": "Human Resources",
+          "start_year": 2016,
+          "end_year": 2018,
+          "grade": "7.8 CGPA",
+          "tier": "tier_3"
+        }
+      ],
+      "skills": [
+        {"name": "Python", "proficiency": "advanced", "endorsements": 5, "duration_months": 8},
+        {"name": "NLP", "proficiency": "advanced", "endorsements": 3, "duration_months": 6},
+        {"name": "BERT", "proficiency": "intermediate", "endorsements": 1, "duration_months": 4},
+        {"name": "RAG", "proficiency": "intermediate", "endorsements": 0, "duration_months": 3},
+        {"name": "LangChain", "proficiency": "advanced", "endorsements": 2, "duration_months": 5},
+        {"name": "Pinecone", "proficiency": "intermediate", "endorsements": 0, "duration_months": 2},
+        {"name": "Fine-tuning LLMs", "proficiency": "intermediate", "endorsements": 1, "duration_months": 3},
+        {"name": "FAISS", "proficiency": "intermediate", "endorsements": 0, "duration_months": 2},
+        {"name": "Embeddings", "proficiency": "advanced", "endorsements": 2, "duration_months": 4}
+      ],
+      "certifications": [],
+      "languages": [
+        {"language": "English", "proficiency": "professional"},
+        {"language": "Hindi", "proficiency": "native"}
+      ],
+      "redrob_signals": {
+        "profile_completeness_score": 85.0,
+        "signup_date": "2025-08-01",
+        "last_active_date": "2026-05-15",
+        "open_to_work_flag": true,
+        "profile_views_received_30d": 15,
+        "applications_submitted_30d": 8,
+        "recruiter_response_rate": 0.65,
+        "avg_response_time_hours": 24.0,
+        "skill_assessment_scores": {},
+        "connection_count": 300,
+        "endorsements_received": 20,
+        "notice_period_days": 30,
+        "expected_salary_range_inr_lpa": {"min": 15.0, "max": 25.0},
+        "preferred_work_mode": "hybrid",
+        "willing_to_relocate": true,
+        "github_activity_score": -1,
+        "search_appearance_30d": 150,
+        "saved_by_recruiters_30d": 3,
+        "interview_completion_rate": 0.80,
+        "offer_acceptance_rate": 0.60,
+        "verified_email": true,
+        "verified_phone": true,
+        "linkedin_connected": true
+      }
+    }
+  },
+  {
+    "id": "consulting_only",
+    "description": "Consulting-only career: all TCS/Wipro, relevant title but entirely services background",
+    "candidate": {
+      "candidate_id": "CAND_9000003",
+      "profile": {
+        "anonymized_name": "Test Candidate C",
+        "headline": "ML Engineer | NLP | Deep Learning",
+        "summary": "Machine learning engineer with 6 years experience building NLP solutions for enterprise clients at consulting firms. Experienced with Python, PyTorch, and various ML frameworks.",
+        "location": "Hyderabad, Telangana",
+        "country": "India",
+        "years_of_experience": 6.0,
+        "current_title": "ML Engineer",
+        "current_company": "TCS",
+        "current_company_size": "10001+",
+        "current_industry": "IT Services"
+      },
+      "career_history": [
+        {
+          "company": "TCS",
+          "title": "ML Engineer",
+          "start_date": "2023-01-01",
+          "end_date": null,
+          "duration_months": 41,
+          "is_current": true,
+          "industry": "IT Services",
+          "company_size": "10001+",
+          "description": "Built NLP models for client projects in banking and insurance. Developed text classification and entity extraction pipelines. Deployed models using Flask APIs on client infrastructure."
+        },
+        {
+          "company": "Wipro",
+          "title": "Data Scientist",
+          "start_date": "2020-06-01",
+          "end_date": "2022-12-31",
+          "duration_months": 31,
+          "is_current": false,
+          "industry": "IT Services",
+          "company_size": "10001+",
+          "description": "Worked on NLP projects for retail and healthcare clients. Built sentiment analysis and document classification models. Used Python, scikit-learn, and TensorFlow."
+        }
+      ],
+      "education": [
+        {
+          "institution": "NIT Warangal",
+          "degree": "B.Tech",
+          "field_of_study": "Computer Science",
+          "start_year": 2016,
+          "end_year": 2020,
+          "grade": "8.5 CGPA",
+          "tier": "tier_1"
+        }
+      ],
+      "skills": [
+        {"name": "Python", "proficiency": "advanced", "endorsements": 20, "duration_months": 60},
+        {"name": "PyTorch", "proficiency": "advanced", "endorsements": 12, "duration_months": 36},
+        {"name": "NLP", "proficiency": "advanced", "endorsements": 15, "duration_months": 48},
+        {"name": "TensorFlow", "proficiency": "intermediate", "endorsements": 8, "duration_months": 24},
+        {"name": "Scikit-learn", "proficiency": "advanced", "endorsements": 10, "duration_months": 48}
+      ],
+      "certifications": [],
+      "languages": [
+        {"language": "English", "proficiency": "professional"},
+        {"language": "Hindi", "proficiency": "native"}
+      ],
+      "redrob_signals": {
+        "profile_completeness_score": 80.0,
+        "signup_date": "2025-09-01",
+        "last_active_date": "2026-05-20",
+        "open_to_work_flag": true,
+        "profile_views_received_30d": 20,
+        "applications_submitted_30d": 4,
+        "recruiter_response_rate": 0.55,
+        "avg_response_time_hours": 36.0,
+        "skill_assessment_scores": {"Python": 72.0},
+        "connection_count": 250,
+        "endorsements_received": 15,
+        "notice_period_days": 90,
+        "expected_salary_range_inr_lpa": {"min": 20.0, "max": 35.0},
+        "preferred_work_mode": "hybrid",
+        "willing_to_relocate": true,
+        "github_activity_score": 15.0,
+        "search_appearance_30d": 200,
+        "saved_by_recruiters_30d": 5,
+        "interview_completion_rate": 0.75,
+        "offer_acceptance_rate": 0.50,
+        "verified_email": true,
+        "verified_phone": false,
+        "linkedin_connected": true
+      }
+    }
+  },
+  {
+    "id": "honeypot_timeline",
+    "description": "Honeypot: single job duration (120 months) exceeds total experience (5 years = 60 months)",
+    "candidate": {
+      "candidate_id": "CAND_9000004",
+      "profile": {
+        "anonymized_name": "Test Candidate D",
+        "headline": "Software Engineer | Python | ML",
+        "summary": "Experienced software engineer with 5 years building ML systems.",
+        "location": "Pune, Maharashtra",
+        "country": "India",
+        "years_of_experience": 5.0,
+        "current_title": "Software Engineer",
+        "current_company": "Flipkart",
+        "current_company_size": "10001+",
+        "current_industry": "E-commerce"
+      },
+      "career_history": [
+        {
+          "company": "Flipkart",
+          "title": "Software Engineer",
+          "start_date": "2016-01-01",
+          "end_date": null,
+          "duration_months": 120,
+          "is_current": true,
+          "industry": "E-commerce",
+          "company_size": "10001+",
+          "description": "Built search and recommendation systems for e-commerce platform."
+        }
+      ],
+      "education": [
+        {
+          "institution": "IIT Delhi",
+          "degree": "B.Tech",
+          "field_of_study": "Computer Science",
+          "start_year": 2012,
+          "end_year": 2016,
+          "grade": "8.8 CGPA",
+          "tier": "tier_1"
+        }
+      ],
+      "skills": [
+        {"name": "Python", "proficiency": "expert", "endorsements": 30, "duration_months": 60},
+        {"name": "PyTorch", "proficiency": "advanced", "endorsements": 15, "duration_months": 36}
+      ],
+      "certifications": [],
+      "languages": [{"language": "English", "proficiency": "professional"}],
+      "redrob_signals": {
+        "profile_completeness_score": 75.0,
+        "signup_date": "2025-10-01",
+        "last_active_date": "2026-05-25",
+        "open_to_work_flag": true,
+        "profile_views_received_30d": 10,
+        "applications_submitted_30d": 2,
+        "recruiter_response_rate": 0.50,
+        "avg_response_time_hours": 48.0,
+        "skill_assessment_scores": {},
+        "connection_count": 150,
+        "endorsements_received": 10,
+        "notice_period_days": 30,
+        "expected_salary_range_inr_lpa": {"min": 25.0, "max": 40.0},
+        "preferred_work_mode": "hybrid",
+        "willing_to_relocate": true,
+        "github_activity_score": 40.0,
+        "search_appearance_30d": 100,
+        "saved_by_recruiters_30d": 3,
+        "interview_completion_rate": 0.85,
+        "offer_acceptance_rate": 0.70,
+        "verified_email": true,
+        "verified_phone": true,
+        "linkedin_connected": true
+      }
+    }
+  },
+  {
+    "id": "legitimate_postgrad",
+    "description": "Legitimate candidate with recent postgrad (M.Tech) — should NOT be flagged as honeypot despite graduation year math",
+    "candidate": {
+      "candidate_id": "CAND_9000005",
+      "profile": {
+        "anonymized_name": "Test Candidate E",
+        "headline": "ML Engineer | NLP | Search Systems",
+        "summary": "ML engineer with 5.5 years industry experience after completing M.Tech. Built search and ranking systems at two product companies.",
+        "location": "Noida, Uttar Pradesh",
+        "country": "India",
+        "years_of_experience": 5.5,
+        "current_title": "ML Engineer",
+        "current_company": "CRED",
+        "current_company_size": "501-1000",
+        "current_industry": "Fintech"
+      },
+      "career_history": [
+        {
+          "company": "CRED",
+          "title": "ML Engineer",
+          "start_date": "2023-06-01",
+          "end_date": null,
+          "duration_months": 36,
+          "is_current": true,
+          "industry": "Fintech",
+          "company_size": "501-1000",
+          "description": "Building recommendation and search systems for the CRED platform. Implemented semantic search using sentence-transformers and FAISS. Designed ranking evaluation using NDCG and MRR. Deployed models serving 5M+ users with real-time inference."
+        },
+        {
+          "company": "Razorpay",
+          "title": "Data Scientist",
+          "start_date": "2020-12-01",
+          "end_date": "2023-05-31",
+          "duration_months": 30,
+          "is_current": false,
+          "industry": "Fintech",
+          "company_size": "1001-5000",
+          "description": "Built fraud detection and merchant recommendation models. Worked on feature engineering and model deployment pipelines."
+        }
+      ],
+      "education": [
+        {
+          "institution": "IIT Kanpur",
+          "degree": "M.Tech",
+          "field_of_study": "Computer Science",
+          "start_year": 2018,
+          "end_year": 2020,
+          "grade": "9.0 CGPA",
+          "tier": "tier_1"
+        },
+        {
+          "institution": "NIT Trichy",
+          "degree": "B.Tech",
+          "field_of_study": "Computer Science",
+          "start_year": 2014,
+          "end_year": 2018,
+          "grade": "8.7 CGPA",
+          "tier": "tier_1"
+        }
+      ],
+      "skills": [
+        {"name": "Python", "proficiency": "expert", "endorsements": 35, "duration_months": 60},
+        {"name": "FAISS", "proficiency": "advanced", "endorsements": 12, "duration_months": 30},
+        {"name": "Sentence Transformers", "proficiency": "advanced", "endorsements": 10, "duration_months": 24},
+        {"name": "NLP", "proficiency": "advanced", "endorsements": 20, "duration_months": 48},
+        {"name": "Recommendation Systems", "proficiency": "advanced", "endorsements": 8, "duration_months": 36},
+        {"name": "PyTorch", "proficiency": "advanced", "endorsements": 18, "duration_months": 42}
+      ],
+      "certifications": [],
+      "languages": [
+        {"language": "English", "proficiency": "professional"},
+        {"language": "Hindi", "proficiency": "native"}
+      ],
+      "redrob_signals": {
+        "profile_completeness_score": 88.0,
+        "signup_date": "2025-07-15",
+        "last_active_date": "2026-05-30",
+        "open_to_work_flag": true,
+        "profile_views_received_30d": 35,
+        "applications_submitted_30d": 3,
+        "recruiter_response_rate": 0.78,
+        "avg_response_time_hours": 8.0,
+        "skill_assessment_scores": {"Python": 82.0, "NLP": 70.0},
+        "connection_count": 400,
+        "endorsements_received": 30,
+        "notice_period_days": 90,
+        "expected_salary_range_inr_lpa": {"min": 30.0, "max": 50.0},
+        "preferred_work_mode": "hybrid",
+        "willing_to_relocate": false,
+        "github_activity_score": 45.0,
+        "search_appearance_30d": 300,
+        "saved_by_recruiters_30d": 8,
+        "interview_completion_rate": 0.88,
+        "offer_acceptance_rate": 0.80,
+        "verified_email": true,
+        "verified_phone": true,
+        "linkedin_connected": true
+      }
+    }
+  },
+  {
+    "id": "product_after_consulting",
+    "description": "Mixed career: started at consulting (Wipro) but moved to product company — should not be heavily penalized",
+    "candidate": {
+      "candidate_id": "CAND_9000006",
+      "profile": {
+        "anonymized_name": "Test Candidate F",
+        "headline": "AI Engineer | Search & Ranking",
+        "summary": "AI engineer with 7 years experience. Started career in consulting, transitioned to product companies where I built search and recommendation systems.",
+        "location": "Pune, Maharashtra",
+        "country": "India",
+        "years_of_experience": 7.0,
+        "current_title": "AI Engineer",
+        "current_company": "Swiggy",
+        "current_company_size": "5001-10000",
+        "current_industry": "Food Delivery"
+      },
+      "career_history": [
+        {
+          "company": "Swiggy",
+          "title": "AI Engineer",
+          "start_date": "2022-06-01",
+          "end_date": null,
+          "duration_months": 48,
+          "is_current": true,
+          "industry": "Food Delivery",
+          "company_size": "5001-10000",
+          "description": "Building restaurant search and ranking systems. Implemented hybrid retrieval combining BM25 with dense embeddings. Deployed semantic search serving 50M+ monthly active users. Built A/B testing framework for ranking experiments."
+        },
+        {
+          "company": "Wipro",
+          "title": "Data Scientist",
+          "start_date": "2019-06-01",
+          "end_date": "2022-05-31",
+          "duration_months": 36,
+          "is_current": false,
+          "industry": "IT Services",
+          "company_size": "10001+",
+          "description": "NLP and text analytics projects for banking clients. Built document classification and entity extraction systems."
+        }
+      ],
+      "education": [
+        {
+          "institution": "BITS Pilani",
+          "degree": "B.E.",
+          "field_of_study": "Computer Science",
+          "start_year": 2015,
+          "end_year": 2019,
+          "grade": "8.2 CGPA",
+          "tier": "tier_1"
+        }
+      ],
+      "skills": [
+        {"name": "Python", "proficiency": "expert", "endorsements": 30, "duration_months": 72},
+        {"name": "Elasticsearch", "proficiency": "advanced", "endorsements": 15, "duration_months": 36},
+        {"name": "FAISS", "proficiency": "advanced", "endorsements": 10, "duration_months": 24},
+        {"name": "NLP", "proficiency": "advanced", "endorsements": 20, "duration_months": 48},
+        {"name": "Embeddings", "proficiency": "advanced", "endorsements": 12, "duration_months": 30},
+        {"name": "A/B Testing", "proficiency": "intermediate", "endorsements": 8, "duration_months": 24}
+      ],
+      "certifications": [],
+      "languages": [
+        {"language": "English", "proficiency": "professional"},
+        {"language": "Hindi", "proficiency": "native"}
+      ],
+      "redrob_signals": {
+        "profile_completeness_score": 85.0,
+        "signup_date": "2025-08-01",
+        "last_active_date": "2026-05-25",
+        "open_to_work_flag": true,
+        "profile_views_received_30d": 30,
+        "applications_submitted_30d": 3,
+        "recruiter_response_rate": 0.70,
+        "avg_response_time_hours": 16.0,
+        "skill_assessment_scores": {},
+        "connection_count": 350,
+        "endorsements_received": 25,
+        "notice_period_days": 60,
+        "expected_salary_range_inr_lpa": {"min": 30.0, "max": 45.0},
+        "preferred_work_mode": "hybrid",
+        "willing_to_relocate": true,
+        "github_activity_score": 30.0,
+        "search_appearance_30d": 250,
+        "saved_by_recruiters_30d": 6,
+        "interview_completion_rate": 0.82,
+        "offer_acceptance_rate": 0.65,
+        "verified_email": true,
+        "verified_phone": true,
+        "linkedin_connected": false
+      }
+    }
+  },
+  {
+    "id": "honeypot_skill_stuffing",
+    "description": "Honeypot: 8 expert/advanced skills with zero duration and zero endorsements",
+    "candidate": {
+      "candidate_id": "CAND_9000007",
+      "profile": {
+        "anonymized_name": "Test Candidate G",
+        "headline": "Software Engineer | AI | ML",
+        "summary": "Software engineer with AI expertise.",
+        "location": "Delhi, NCR",
+        "country": "India",
+        "years_of_experience": 6.0,
+        "current_title": "Software Engineer",
+        "current_company": "Globex Inc",
+        "current_company_size": "201-500",
+        "current_industry": "Software"
+      },
+      "career_history": [
+        {
+          "company": "Globex Inc",
+          "title": "Software Engineer",
+          "start_date": "2020-06-01",
+          "end_date": null,
+          "duration_months": 72,
+          "is_current": true,
+          "industry": "Software",
+          "company_size": "201-500",
+          "description": "General software development."
+        }
+      ],
+      "education": [
+        {
+          "institution": "Delhi University",
+          "degree": "B.Sc",
+          "field_of_study": "Computer Science",
+          "start_year": 2016,
+          "end_year": 2020,
+          "grade": "7.5 CGPA",
+          "tier": "tier_2"
+        }
+      ],
+      "skills": [
+        {"name": "Python", "proficiency": "expert", "endorsements": 0, "duration_months": 0},
+        {"name": "PyTorch", "proficiency": "expert", "endorsements": 0, "duration_months": 0},
+        {"name": "NLP", "proficiency": "expert", "endorsements": 0, "duration_months": 0},
+        {"name": "FAISS", "proficiency": "expert", "endorsements": 0, "duration_months": 0},
+        {"name": "Embeddings", "proficiency": "advanced", "endorsements": 0, "duration_months": 0},
+        {"name": "RAG", "proficiency": "expert", "endorsements": 0, "duration_months": 0},
+        {"name": "LangChain", "proficiency": "advanced", "endorsements": 0, "duration_months": 0},
+        {"name": "Elasticsearch", "proficiency": "advanced", "endorsements": 0, "duration_months": 0}
+      ],
+      "certifications": [],
+      "languages": [{"language": "English", "proficiency": "professional"}],
+      "redrob_signals": {
+        "profile_completeness_score": 60.0,
+        "signup_date": "2026-01-01",
+        "last_active_date": "2026-05-10",
+        "open_to_work_flag": true,
+        "profile_views_received_30d": 5,
+        "applications_submitted_30d": 10,
+        "recruiter_response_rate": 0.20,
+        "avg_response_time_hours": 72.0,
+        "skill_assessment_scores": {},
+        "connection_count": 50,
+        "endorsements_received": 2,
+        "notice_period_days": 15,
+        "expected_salary_range_inr_lpa": {"min": 15.0, "max": 25.0},
+        "preferred_work_mode": "remote",
+        "willing_to_relocate": false,
+        "github_activity_score": -1,
+        "search_appearance_30d": 30,
+        "saved_by_recruiters_30d": 0,
+        "interview_completion_rate": 0.40,
+        "offer_acceptance_rate": -1,
+        "verified_email": false,
+        "verified_phone": false,
+        "linkedin_connected": false
+      }
+    }
+  },
+  {
+    "id": "inactive_strong_candidate",
+    "description": "Strong on paper but inactive — tests behavioral multiplier impact",
+    "candidate": {
+      "candidate_id": "CAND_9000008",
+      "profile": {
+        "anonymized_name": "Test Candidate H",
+        "headline": "NLP Engineer | Search Ranking | Deep Learning",
+        "summary": "NLP engineer specialized in search ranking with 6.5 years of experience.",
+        "location": "Bangalore, Karnataka",
+        "country": "India",
+        "years_of_experience": 6.5,
+        "current_title": "NLP Engineer",
+        "current_company": "Google",
+        "current_company_size": "10001+",
+        "current_industry": "Software"
+      },
+      "career_history": [
+        {
+          "company": "Google",
+          "title": "NLP Engineer",
+          "start_date": "2021-01-01",
+          "end_date": null,
+          "duration_months": 65,
+          "is_current": true,
+          "industry": "Software",
+          "company_size": "10001+",
+          "description": "Working on search ranking models for Google Search. Built neural re-ranking systems using transformer architectures. Implemented evaluation frameworks with NDCG@10, MRR, and MAP metrics. Deployed ranking models serving billions of queries."
+        },
+        {
+          "company": "Microsoft",
+          "title": "ML Engineer",
+          "start_date": "2019-06-01",
+          "end_date": "2020-12-31",
+          "duration_months": 19,
+          "is_current": false,
+          "industry": "Software",
+          "company_size": "10001+",
+          "description": "Built recommendation systems for Azure Marketplace. Worked on semantic search using dense retrieval and embedding models."
+        }
+      ],
+      "education": [
+        {
+          "institution": "IISc Bangalore",
+          "degree": "M.S.",
+          "field_of_study": "Computer Science",
+          "start_year": 2017,
+          "end_year": 2019,
+          "grade": "9.2 CGPA",
+          "tier": "tier_1"
+        }
+      ],
+      "skills": [
+        {"name": "Python", "proficiency": "expert", "endorsements": 50, "duration_months": 72},
+        {"name": "NLP", "proficiency": "expert", "endorsements": 40, "duration_months": 60},
+        {"name": "Information Retrieval", "proficiency": "expert", "endorsements": 25, "duration_months": 48},
+        {"name": "PyTorch", "proficiency": "expert", "endorsements": 35, "duration_months": 54},
+        {"name": "Elasticsearch", "proficiency": "advanced", "endorsements": 15, "duration_months": 36}
+      ],
+      "certifications": [],
+      "languages": [
+        {"language": "English", "proficiency": "professional"},
+        {"language": "Hindi", "proficiency": "native"}
+      ],
+      "redrob_signals": {
+        "profile_completeness_score": 90.0,
+        "signup_date": "2025-03-01",
+        "last_active_date": "2025-09-15",
+        "open_to_work_flag": false,
+        "profile_views_received_30d": 2,
+        "applications_submitted_30d": 0,
+        "recruiter_response_rate": 0.05,
+        "avg_response_time_hours": 200.0,
+        "skill_assessment_scores": {"Python": 95.0, "NLP": 90.0},
+        "connection_count": 800,
+        "endorsements_received": 60,
+        "notice_period_days": 120,
+        "expected_salary_range_inr_lpa": {"min": 60.0, "max": 90.0},
+        "preferred_work_mode": "onsite",
+        "willing_to_relocate": false,
+        "github_activity_score": 75.0,
+        "search_appearance_30d": 50,
+        "saved_by_recruiters_30d": 1,
+        "interview_completion_rate": 0.90,
+        "offer_acceptance_rate": 0.30,
+        "verified_email": true,
+        "verified_phone": false,
+        "linkedin_connected": true
+      }
+    }
+  }
+]
