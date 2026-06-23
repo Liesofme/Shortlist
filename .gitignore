@@ -1,0 +1,19 @@
+# Data files
+candidates.jsonl
+sample_candidates.json
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+
+# IDE
+.vscode/
+.idea/
+
+# Output
+submission.csv
+
+# Exploration scripts (not part of submission)
+explore_*.py
