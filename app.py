@@ -1,8 +1,8 @@
 """
 Redrob Candidate Ranking — Streamlit Sandbox App
 
-Accepts a small candidate JSONL/JSON file upload (≤100 candidates),
-runs the ranking pipeline, and returns a downloadable CSV.
+Premium UI for the hackathon demo. Upload candidates, rank them,
+download results.
 """
 
 import streamlit as st
@@ -13,7 +13,6 @@ import time
 import sys
 import os
 
-# Add project root to path
 sys.path.insert(0, os.path.dirname(__file__))
 
 from scoring import compute_all_scores, is_honeypot, _get_title_tier
@@ -21,9 +20,196 @@ from reasoning import generate_reasoning
 from config import TOP_N
 
 
+# =========================================================================
+# Custom CSS for premium look
+# =========================================================================
+CUSTOM_CSS = """
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Global */
+html, body, [class*="css"] {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Hero header */
+.hero-title {
+    font-size: 2.8rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7, #d946ef);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.2rem;
+    letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+    font-size: 1.15rem;
+    color: #94a3b8;
+    font-weight: 400;
+    margin-bottom: 1.5rem;
+}
+
+/* Stat cards */
+.stat-card {
+    background: linear-gradient(145deg, rgba(99,102,241,0.12), rgba(139,92,246,0.06));
+    border: 1px solid rgba(139,92,246,0.2);
+    border-radius: 16px;
+    padding: 1.2rem 1.5rem;
+    text-align: center;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(99,102,241,0.15);
+}
+.stat-number {
+    font-size: 2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #818cf8, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+.stat-label {
+    font-size: 0.8rem;
+    color: #94a3b8;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-top: 0.3rem;
+}
+
+/* Feature pills */
+.feature-row {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin: 1rem 0 1.5rem 0;
+}
+.feature-pill {
+    background: rgba(99,102,241,0.1);
+    border: 1px solid rgba(99,102,241,0.2);
+    border-radius: 100px;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.78rem;
+    color: #a5b4fc;
+    font-weight: 500;
+}
+
+/* Section headers */
+.section-header {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: #e2e8f0;
+    margin: 2rem 0 1rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Result cards */
+.result-card {
+    background: linear-gradient(145deg, rgba(30,30,46,0.8), rgba(20,20,35,0.6));
+    border: 1px solid rgba(99,102,241,0.15);
+    border-radius: 14px;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 0.8rem;
+    transition: border-color 0.2s ease;
+}
+.result-card:hover {
+    border-color: rgba(139,92,246,0.4);
+}
+.result-rank {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #6366f1;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+.result-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #e2e8f0;
+    margin: 0.2rem 0;
+}
+.result-meta {
+    font-size: 0.82rem;
+    color: #94a3b8;
+}
+.result-score {
+    font-size: 1.4rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, #34d399, #6ee7b7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Upload area */
+[data-testid="stFileUploader"] {
+    border: 2px dashed rgba(99,102,241,0.3) !important;
+    border-radius: 16px !important;
+    padding: 1rem !important;
+}
+
+/* Buttons */
+.stButton > button[kind="primary"] {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6) !important;
+    border: none !important;
+    border-radius: 12px !important;
+    padding: 0.6rem 2rem !important;
+    font-weight: 600 !important;
+    letter-spacing: 0.02em !important;
+    transition: all 0.2s ease !important;
+}
+.stButton > button[kind="primary"]:hover {
+    box-shadow: 0 6px 20px rgba(99,102,241,0.4) !important;
+    transform: translateY(-1px) !important;
+}
+
+/* Divider */
+.gradient-divider {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(99,102,241,0.4), rgba(168,85,247,0.4), transparent);
+    margin: 1.5rem 0;
+    border: none;
+}
+
+/* How it works steps */
+.step-container {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+}
+.step-number {
+    background: linear-gradient(135deg, #6366f1, #8b5cf6);
+    color: white;
+    font-weight: 700;
+    font-size: 0.85rem;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+.step-text {
+    color: #cbd5e1;
+    font-size: 0.9rem;
+    line-height: 1.5;
+}
+.step-text strong {
+    color: #e2e8f0;
+}
+</style>
+"""
+
+
 def rank_candidates(candidates):
     """Run the ranking pipeline on a list of candidates."""
-    # Stage 1: Coarse filter
     filtered = []
     honeypots = []
     tier5_removed = []
@@ -43,20 +229,16 @@ def rank_candidates(candidates):
 
         filtered.append(candidate)
 
-    # Stage 2: Score
     scored = []
     for candidate in filtered:
         scores = compute_all_scores(candidate)
         scored.append({"candidate": candidate, "scores": scores})
 
-    # Sort
-    scored.sort(key=lambda x: (-x["scores"]["final_score"], x["candidate"]["candidate_id"]))
+    scored.sort(key=lambda x: (-round(x["scores"]["final_score"], 4), x["candidate"]["candidate_id"]))
 
-    # Select top N (or all if fewer)
     n = min(TOP_N, len(scored))
     top = scored[:n]
 
-    # Generate reasoning
     results = []
     for rank, entry in enumerate(top, start=1):
         candidate = entry["candidate"]
@@ -70,6 +252,7 @@ def rank_candidates(candidates):
             "title": candidate["profile"]["current_title"],
             "company": candidate["profile"]["current_company"],
             "yoe": candidate["profile"]["years_of_experience"],
+            "location": candidate["profile"].get("location", ""),
         })
 
     return results, tier5_removed, honeypots
@@ -87,94 +270,213 @@ def results_to_csv(results):
 
 def main():
     st.set_page_config(
-        page_title="Redrob Candidate Ranker",
-        page_icon="🎯",
+        page_title="Redrob AI Ranker",
+        page_icon="⚡",
         layout="wide",
+        initial_sidebar_state="expanded",
     )
 
-    st.title("🎯 Redrob Intelligent Candidate Ranker")
+    # Inject custom CSS
+    st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
+
+    # =====================================================================
+    # Sidebar — How It Works
+    # =====================================================================
+    with st.sidebar:
+        st.markdown('<div class="hero-title" style="font-size:1.6rem;">⚡ How It Works</div>', unsafe_allow_html=True)
+        st.markdown('<div class="gradient-divider"></div>', unsafe_allow_html=True)
+
+        st.markdown("""
+        <div class="step-container">
+            <div class="step-number">1</div>
+            <div class="step-text"><strong>Upload</strong> your candidate pool (JSONL or JSON)</div>
+        </div>
+        <div class="step-container">
+            <div class="step-number">2</div>
+            <div class="step-text"><strong>Filter</strong> — removes irrelevant titles & fake profiles instantly</div>
+        </div>
+        <div class="step-container">
+            <div class="step-number">3</div>
+            <div class="step-text"><strong>Score</strong> — 6 weighted components evaluate career fit, skills trust, and production evidence</div>
+        </div>
+        <div class="step-container">
+            <div class="step-number">4</div>
+            <div class="step-text"><strong>Modulate</strong> — behavioral signals (availability, response rate) gate the final score</div>
+        </div>
+        <div class="step-container">
+            <div class="step-number">5</div>
+            <div class="step-text"><strong>Rank & Explain</strong> — top candidates with fact-grounded reasoning</div>
+        </div>
+        """, unsafe_allow_html=True)
+
+        st.markdown('<div class="gradient-divider"></div>', unsafe_allow_html=True)
+
+        st.markdown("""
+        <div style="margin-top:1rem;">
+            <div class="stat-label" style="margin-bottom:0.8rem;">SCORING WEIGHTS</div>
+            <div style="display:flex;justify-content:space-between;color:#94a3b8;font-size:0.82rem;margin-bottom:0.3rem;">
+                <span>Career Relevance</span><span style="color:#a78bfa;font-weight:600;">38%</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;color:#94a3b8;font-size:0.82rem;margin-bottom:0.3rem;">
+                <span>Skills Alignment</span><span style="color:#a78bfa;font-weight:600;">22%</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;color:#94a3b8;font-size:0.82rem;margin-bottom:0.3rem;">
+                <span>Keyword Coverage</span><span style="color:#a78bfa;font-weight:600;">16%</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;color:#94a3b8;font-size:0.82rem;margin-bottom:0.3rem;">
+                <span>Experience Fit</span><span style="color:#a78bfa;font-weight:600;">12%</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;color:#94a3b8;font-size:0.82rem;margin-bottom:0.3rem;">
+                <span>Education</span><span style="color:#a78bfa;font-weight:600;">7%</span>
+            </div>
+            <div style="display:flex;justify-content:space-between;color:#94a3b8;font-size:0.82rem;">
+                <span>Location</span><span style="color:#a78bfa;font-weight:600;">5%</span>
+            </div>
+        </div>
+        """, unsafe_allow_html=True)
+
+        st.markdown('<div class="gradient-divider"></div>', unsafe_allow_html=True)
+
+        st.markdown("""
+        <div style="color:#64748b;font-size:0.75rem;line-height:1.6;">
+            Deterministic · CPU-only · No LLM calls<br>
+            No network access during ranking<br>
+            100K candidates in ~20 seconds
+        </div>
+        """, unsafe_allow_html=True)
+
+    # =====================================================================
+    # Main Content
+    # =====================================================================
+
+    # Hero
+    st.markdown('<div class="hero-title">Intelligent Candidate Discovery</div>', unsafe_allow_html=True)
+    st.markdown('<div class="hero-subtitle">AI-powered ranking for Senior AI Engineer — Ranking & Retrieval Systems</div>', unsafe_allow_html=True)
+
+    # Feature pills
     st.markdown("""
-    **Senior AI Engineer — Ranking & Retrieval Systems**
+    <div class="feature-row">
+        <span class="feature-pill">🧠 Context-Aware Scoring</span>
+        <span class="feature-pill">🛡️ Honeypot Detection</span>
+        <span class="feature-pill">⚡ 20s for 100K Candidates</span>
+        <span class="feature-pill">📊 Explainable Rankings</span>
+        <span class="feature-pill">🚫 Zero Hallucinations</span>
+    </div>
+    """, unsafe_allow_html=True)
 
-    Upload a candidate file (JSONL or JSON array, ≤100 candidates) to rank them
-    against the job description. The pipeline uses a deterministic, explainable
-    scoring system — no LLM calls, no network access.
-    """)
+    st.markdown('<div class="gradient-divider"></div>', unsafe_allow_html=True)
 
-    st.divider()
+    # Upload section
+    st.markdown('<div class="section-header">📂 Upload Candidate Pool</div>', unsafe_allow_html=True)
 
-    # File upload
     uploaded = st.file_uploader(
-        "Upload candidates file",
+        "Drop your candidates file here",
         type=["jsonl", "json"],
-        help="JSONL (one JSON object per line) or JSON array format"
+        help="JSONL (one JSON object per line) or JSON array. Max 100 candidates for the sandbox demo.",
+        label_visibility="collapsed",
     )
 
     if uploaded is not None:
-        # Parse file
         try:
             content = uploaded.read().decode("utf-8")
             if uploaded.name.endswith(".jsonl"):
                 candidates = [json.loads(line) for line in content.strip().split("\n") if line.strip()]
             else:
                 parsed = json.loads(content)
-                if isinstance(parsed, list):
-                    candidates = parsed
-                else:
-                    candidates = [parsed]
+                candidates = parsed if isinstance(parsed, list) else [parsed]
         except Exception as e:
-            st.error(f"Failed to parse file: {e}")
+            st.error(f"❌ Failed to parse file: {e}")
             return
 
-        st.success(f"Loaded **{len(candidates)}** candidates")
-
         if len(candidates) > 100:
-            st.warning("File contains more than 100 candidates. Only the first 100 will be processed.")
+            st.warning(f"⚠️ File has {len(candidates):,} candidates. Sandbox processes the first 100.")
             candidates = candidates[:100]
 
-        # Run ranking
-        if st.button("🚀 Run Ranking Pipeline", type="primary"):
-            with st.spinner("Scoring candidates..."):
+        st.success(f"✅ Loaded **{len(candidates)}** candidates from `{uploaded.name}`")
+
+        st.markdown('<div class="gradient-divider"></div>', unsafe_allow_html=True)
+
+        # Run button
+        if st.button("⚡ Run Ranking Pipeline", type="primary", use_container_width=True):
+            with st.spinner("Analyzing candidates..."):
                 start = time.time()
                 results, tier5, honeypots = rank_candidates(candidates)
                 elapsed = time.time() - start
 
-            st.success(f"Ranking complete in **{elapsed:.2f}s**")
+            # Stats row
+            st.markdown('<div class="section-header">📊 Pipeline Results</div>', unsafe_allow_html=True)
 
-            # Summary metrics
-            col1, col2, col3, col4 = st.columns(4)
-            col1.metric("Candidates Ranked", len(results))
-            col2.metric("Tier 5 Filtered", len(tier5))
-            col3.metric("Honeypots Detected", len(honeypots))
-            col4.metric("Runtime", f"{elapsed:.1f}s")
+            c1, c2, c3, c4 = st.columns(4)
+            with c1:
+                st.markdown(f"""
+                <div class="stat-card">
+                    <div class="stat-number">{len(results)}</div>
+                    <div class="stat-label">Ranked</div>
+                </div>""", unsafe_allow_html=True)
+            with c2:
+                st.markdown(f"""
+                <div class="stat-card">
+                    <div class="stat-number">{len(tier5)}</div>
+                    <div class="stat-label">Filtered (Irrelevant)</div>
+                </div>""", unsafe_allow_html=True)
+            with c3:
+                st.markdown(f"""
+                <div class="stat-card">
+                    <div class="stat-number">{len(honeypots)}</div>
+                    <div class="stat-label">Honeypots Caught</div>
+                </div>""", unsafe_allow_html=True)
+            with c4:
+                st.markdown(f"""
+                <div class="stat-card">
+                    <div class="stat-number">{elapsed:.1f}s</div>
+                    <div class="stat-label">Runtime</div>
+                </div>""", unsafe_allow_html=True)
 
-            st.divider()
-
-            # Results table
-            st.subheader("📊 Ranked Candidates")
+            st.markdown('<div class="gradient-divider"></div>', unsafe_allow_html=True)
 
             if results:
-                # Display as a clean table
-                display_data = []
-                for r in results:
-                    display_data.append({
-                        "Rank": r["rank"],
-                        "ID": r["candidate_id"],
-                        "Title": r["title"],
-                        "Company": r["company"],
-                        "YoE": r["yoe"],
-                        "Score": f"{r['score']:.4f}",
-                    })
+                # Top candidates as cards
+                st.markdown('<div class="section-header">🏆 Top Ranked Candidates</div>', unsafe_allow_html=True)
+
+                for r in results[:10]:
+                    col_info, col_score = st.columns([5, 1])
+                    with col_info:
+                        st.markdown(f"""
+                        <div class="result-card">
+                            <div class="result-rank">Rank #{r['rank']}</div>
+                            <div class="result-title">{r['title']} at {r['company']}</div>
+                            <div class="result-meta">{r['candidate_id']} · {r['yoe']:.1f} years · {r['location']}</div>
+                        </div>""", unsafe_allow_html=True)
+                    with col_score:
+                        st.markdown(f"""
+                        <div style="text-align:center;padding-top:1.2rem;">
+                            <div class="result-score">{r['score']:.4f}</div>
+                        </div>""", unsafe_allow_html=True)
+
+                # Full table
+                st.markdown('<div class="section-header">📋 Complete Rankings</div>', unsafe_allow_html=True)
+
+                display_data = [{
+                    "Rank": r["rank"],
+                    "ID": r["candidate_id"],
+                    "Title": r["title"],
+                    "Company": r["company"],
+                    "Experience": f"{r['yoe']:.1f}y",
+                    "Location": r["location"],
+                    "Score": f"{r['score']:.4f}",
+                } for r in results]
 
                 st.dataframe(display_data, use_container_width=True, hide_index=True)
 
-                # Expandable reasoning
-                st.subheader("📝 Detailed Reasoning")
-                for r in results[:20]:  # Show first 20
-                    with st.expander(f"Rank {r['rank']}: {r['candidate_id']} — {r['title']} @ {r['company']} (Score: {r['score']:.4f})"):
+                # Reasoning
+                st.markdown('<div class="section-header">💬 Detailed Reasoning</div>', unsafe_allow_html=True)
+
+                for r in results[:20]:
+                    with st.expander(f"#{r['rank']} — {r['title']} @ {r['company']} ({r['score']:.4f})"):
                         st.write(r["reasoning"])
 
-                # Download CSV
+                # Download
+                st.markdown('<div class="gradient-divider"></div>', unsafe_allow_html=True)
                 csv_content = results_to_csv(results)
                 st.download_button(
                     label="📥 Download Submission CSV",
@@ -182,26 +484,25 @@ def main():
                     file_name="submission.csv",
                     mime="text/csv",
                     type="primary",
+                    use_container_width=True,
                 )
             else:
-                st.warning("No candidates passed the filters. All candidates were either "
-                          "irrelevant titles (Tier 5) or honeypots.")
+                st.warning("No candidates passed the filters.")
 
             # Filter details
             if tier5 or honeypots:
-                st.divider()
-                st.subheader("🔍 Filter Details")
+                st.markdown('<div class="gradient-divider"></div>', unsafe_allow_html=True)
+                st.markdown('<div class="section-header">🔍 Filter Details</div>', unsafe_allow_html=True)
 
                 if tier5:
-                    with st.expander(f"Tier 5 Filtered ({len(tier5)} candidates)"):
-                        st.write("These candidates have irrelevant titles (HR, Marketing, etc.) "
-                                "and were removed before scoring:")
+                    with st.expander(f"Irrelevant Titles Removed ({len(tier5)})"):
+                        st.caption("These candidates have non-engineering titles (HR, Marketing, etc.) and were filtered before scoring.")
                         st.code(", ".join(tier5[:20]) + ("..." if len(tier5) > 20 else ""))
 
                 if honeypots:
-                    with st.expander(f"Honeypots Detected ({len(honeypots)} candidates)"):
+                    with st.expander(f"Honeypots Detected ({len(honeypots)})"):
                         for cid, reasons in honeypots:
-                            st.write(f"**{cid}**: {'; '.join(reasons)}")
+                            st.markdown(f"**{cid}**: {'; '.join(reasons)}")
 
 
 if __name__ == "__main__":
