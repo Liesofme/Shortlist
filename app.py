@@ -1,5 +1,5 @@
 """
-Redrob Candidate Ranking — Streamlit Sandbox App
+Redrob Candidate Ranking - Streamlit Sandbox App
 
 Premium UI for the hackathon demo. Upload candidates, rank them,
 download results.
@@ -280,7 +280,7 @@ def main():
     st.markdown(CUSTOM_CSS, unsafe_allow_html=True)
 
     # =====================================================================
-    # Sidebar — How It Works
+    # Sidebar - How It Works
     # =====================================================================
     with st.sidebar:
         st.markdown('<div class="hero-title" style="font-size:1.6rem;">⚡ How It Works</div>', unsafe_allow_html=True)
@@ -293,19 +293,19 @@ def main():
         </div>
         <div class="step-container">
             <div class="step-number">2</div>
-            <div class="step-text"><strong>Filter</strong> — removes irrelevant titles & fake profiles instantly</div>
+            <div class="step-text"><strong>Filter</strong> - removes irrelevant titles & fake profiles instantly</div>
         </div>
         <div class="step-container">
             <div class="step-number">3</div>
-            <div class="step-text"><strong>Score</strong> — 6 weighted components evaluate career fit, skills trust, and production evidence</div>
+            <div class="step-text"><strong>Score</strong> - 6 weighted components evaluate career fit, skills trust, and production evidence</div>
         </div>
         <div class="step-container">
             <div class="step-number">4</div>
-            <div class="step-text"><strong>Modulate</strong> — behavioral signals (availability, response rate) gate the final score</div>
+            <div class="step-text"><strong>Modulate</strong> - behavioral signals (availability, response rate) gate the final score</div>
         </div>
         <div class="step-container">
             <div class="step-number">5</div>
-            <div class="step-text"><strong>Rank & Explain</strong> — top candidates with fact-grounded reasoning</div>
+            <div class="step-text"><strong>Rank & Explain</strong> - top candidates with fact-grounded reasoning</div>
         </div>
         """, unsafe_allow_html=True)
 
@@ -351,7 +351,7 @@ def main():
 
     # Hero
     st.markdown('<div class="hero-title">Intelligent Candidate Discovery</div>', unsafe_allow_html=True)
-    st.markdown('<div class="hero-subtitle">AI-powered ranking for Senior AI Engineer — Ranking & Retrieval Systems</div>', unsafe_allow_html=True)
+    st.markdown('<div class="hero-subtitle">AI-powered ranking for Senior AI Engineer - Ranking & Retrieval Systems</div>', unsafe_allow_html=True)
 
     # Feature pills
     st.markdown("""
@@ -472,7 +472,7 @@ def main():
                 st.markdown('<div class="section-header">💬 Detailed Reasoning</div>', unsafe_allow_html=True)
 
                 for r in results[:20]:
-                    with st.expander(f"#{r['rank']} — {r['title']} @ {r['company']} ({r['score']:.4f})"):
+                    with st.expander(f"#{r['rank']} - {r['title']} @ {r['company']} ({r['score']:.4f})"):
                         st.write(r["reasoning"])
 
                 # Download
