@@ -28,8 +28,15 @@ CUSTOM_CSS = """
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
 /* Global */
-html, body, [class*="css"] {
+html, body, [class*="css"], .stApp {
     font-family: 'Outfit', sans-serif;
+    background-color: #ffffff !important;
+    color: #1e293b !important;
+}
+
+/* Sidebar */
+[data-testid="stSidebar"] {
+    background-color: #f8fafc !important;
 }
 
 /* Hero header */
