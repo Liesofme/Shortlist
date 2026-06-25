@@ -1,7 +1,7 @@
-# Redrob Intelligent Candidate Discovery & Ranking
+# Shortlist: Intelligent Candidate Discovery & Ranking
 
 A deterministic, CPU-only, network-free candidate ranking pipeline for the
-**Senior AI Engineer** role at Redrob AI. Processes 100,000 candidate profiles
+**Senior AI Engineer** role. Processes 100,000 candidate profiles
 and selects the top 100 best-fit candidates with detailed reasoning.
 
 ## Quick Start

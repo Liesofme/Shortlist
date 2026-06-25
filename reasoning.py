@@ -1,5 +1,5 @@
 """
-Reasoning string generator for the Redrob candidate ranking system.
+Reasoning string generator for Shortlist.
 
 Produces fact-grounded, rank-appropriate reasoning strings that reference
 specific data from each candidate's profile. Zero hallucination — every

@@ -1,5 +1,5 @@
 """
-Configuration for the Redrob candidate ranking system.
+Configuration for the Shortlist candidate ranking system.
 
 All scoring weights, thresholds, title tiers, company lists, keyword sets,
 and signal mappings live here. No magic numbers in scoring code.

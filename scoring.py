@@ -1,5 +1,5 @@
 """
-Scoring functions for the Redrob candidate ranking system.
+Scoring functions for Shortlist.
 
 Each function takes a candidate record (dict) and returns a score in [0, 1].
 All scoring logic is deterministic, explainable, and traceable to JD requirements.

@@ -1,5 +1,5 @@
 """
-Redrob Candidate Ranking - Streamlit Sandbox App
+Shortlist - Candidate Ranking Sandbox App
 
 Premium UI for the hackathon demo. Upload candidates, rank them,
 download results.
@@ -270,7 +270,7 @@ def results_to_csv(results):
 
 def main():
     st.set_page_config(
-        page_title="Redrob AI Ranker",
+        page_title="Shortlist Ranker",
         page_icon="⚡",
         layout="wide",
         initial_sidebar_state="expanded",

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Redrob Candidate Ranking Pipeline — Main Entrypoint
+Shortlist Ranking Pipeline — Main Entrypoint
 
 Usage:
     python rank.py --candidates ./candidates.jsonl --out ./submission.csv
@@ -124,7 +124,7 @@ def generate_submission(
 def print_summary(top_candidates: List[Dict], filter_stats: Dict, elapsed: float) -> None:
     """Print a summary of the ranking results."""
     print(f"\n{'='*70}")
-    print(f"REDROB CANDIDATE RANKING — RESULTS SUMMARY")
+    print(f"SHORTLIST - RESULTS SUMMARY")
     print(f"{'='*70}")
     print(f"\nPipeline completed in {elapsed:.2f} seconds")
     print(f"\nFilter stats:")
@@ -171,7 +171,7 @@ def print_summary(top_candidates: List[Dict], filter_stats: Dict, elapsed: float
 
 def main():
     parser = argparse.ArgumentParser(
-        description="Redrob Candidate Ranking Pipeline"
+        description="Shortlist Ranking Pipeline"
     )
     parser.add_argument(
         "--candidates", required=True,
