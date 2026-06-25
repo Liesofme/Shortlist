@@ -273,7 +273,7 @@ def results_to_csv(results):
 def main():
     st.set_page_config(
         page_title="Shortlist Ranker",
-        page_icon="⚡",
+        page_icon="",
         layout="wide",
         initial_sidebar_state="expanded",
     )
@@ -285,7 +285,7 @@ def main():
     # Sidebar - How It Works
     # =====================================================================
     with st.sidebar:
-        st.markdown('<div class="hero-title" style="font-size:1.6rem;">⚡ How It Works</div>', unsafe_allow_html=True)
+        st.markdown('<div class="hero-title" style="font-size:1.6rem;"> How It Works</div>', unsafe_allow_html=True)
         st.markdown('<div class="gradient-divider"></div>', unsafe_allow_html=True)
 
         st.markdown("""
@@ -341,7 +341,7 @@ def main():
 
         st.markdown("""
         <div style="color:#64748b;font-size:0.75rem;line-height:1.6;">
-            Deterministic · CPU-only · No LLM calls<br>
+            Deterministic  CPU-only  No LLM calls<br>
             No network access during ranking<br>
             100K candidates in ~20 seconds
         </div>
@@ -358,18 +358,18 @@ def main():
     # Feature pills
     st.markdown("""
     <div class="feature-row">
-        <span class="feature-pill">🧠 Context-Aware Scoring</span>
-        <span class="feature-pill">🛡️ Honeypot Detection</span>
-        <span class="feature-pill">⚡ 20s for 100K Candidates</span>
-        <span class="feature-pill">📊 Explainable Rankings</span>
-        <span class="feature-pill">🚫 Zero Hallucinations</span>
+        <span class="feature-pill"> Context-Aware Scoring</span>
+        <span class="feature-pill"> Honeypot Detection</span>
+        <span class="feature-pill"> 20s for 100K Candidates</span>
+        <span class="feature-pill"> Explainable Rankings</span>
+        <span class="feature-pill"> Zero Hallucinations</span>
     </div>
     """, unsafe_allow_html=True)
 
     st.markdown('<div class="gradient-divider"></div>', unsafe_allow_html=True)
 
     # Upload section
-    st.markdown('<div class="section-header">📂 Upload Candidate Pool</div>', unsafe_allow_html=True)
+    st.markdown('<div class="section-header"> Upload Candidate Pool</div>', unsafe_allow_html=True)
 
     uploaded = st.file_uploader(
         "Drop your candidates file here",
@@ -387,26 +387,26 @@ def main():
                 parsed = json.loads(content)
                 candidates = parsed if isinstance(parsed, list) else [parsed]
         except Exception as e:
-            st.error(f"❌ Failed to parse file: {e}")
+            st.error(f" Failed to parse file: {e}")
             return
 
         if len(candidates) > 100:
-            st.warning(f"⚠️ File has {len(candidates):,} candidates. Sandbox processes the first 100.")
+            st.warning(f" File has {len(candidates):,} candidates. Sandbox processes the first 100.")
             candidates = candidates[:100]
 
-        st.success(f"✅ Loaded **{len(candidates)}** candidates from `{uploaded.name}`")
+        st.success(f" Loaded **{len(candidates)}** candidates from `{uploaded.name}`")
 
         st.markdown('<div class="gradient-divider"></div>', unsafe_allow_html=True)
 
         # Run button
-        if st.button("⚡ Run Ranking Pipeline", type="primary", use_container_width=True):
+        if st.button(" Run Ranking Pipeline", type="primary", use_container_width=True):
             with st.spinner("Analyzing candidates..."):
                 start = time.time()
                 results, tier5, honeypots = rank_candidates(candidates)
                 elapsed = time.time() - start
 
             # Stats row
-            st.markdown('<div class="section-header">📊 Pipeline Results</div>', unsafe_allow_html=True)
+            st.markdown('<div class="section-header"> Pipeline Results</div>', unsafe_allow_html=True)
 
             c1, c2, c3, c4 = st.columns(4)
             with c1:
@@ -438,7 +438,7 @@ def main():
 
             if results:
                 # Top candidates as cards
-                st.markdown('<div class="section-header">🏆 Top Ranked Candidates</div>', unsafe_allow_html=True)
+                st.markdown('<div class="section-header"> Top Ranked Candidates</div>', unsafe_allow_html=True)
 
                 for r in results[:10]:
                     col_info, col_score = st.columns([5, 1])
@@ -447,7 +447,7 @@ def main():
                         <div class="result-card">
                             <div class="result-rank">Rank #{r['rank']}</div>
                             <div class="result-title">{r['title']} at {r['company']}</div>
-                            <div class="result-meta">{r['candidate_id']} · {r['yoe']:.1f} years · {r['location']}</div>
+                            <div class="result-meta">{r['candidate_id']}  {r['yoe']:.1f} years  {r['location']}</div>
                         </div>""", unsafe_allow_html=True)
                     with col_score:
                         st.markdown(f"""
@@ -456,7 +456,7 @@ def main():
                         </div>""", unsafe_allow_html=True)
 
                 # Full table
-                st.markdown('<div class="section-header">📋 Complete Rankings</div>', unsafe_allow_html=True)
+                st.markdown('<div class="section-header"> Complete Rankings</div>', unsafe_allow_html=True)
 
                 display_data = [{
                     "Rank": r["rank"],
@@ -471,7 +471,7 @@ def main():
                 st.dataframe(display_data, use_container_width=True, hide_index=True)
 
                 # Reasoning
-                st.markdown('<div class="section-header">💬 Detailed Reasoning</div>', unsafe_allow_html=True)
+                st.markdown('<div class="section-header"> Detailed Reasoning</div>', unsafe_allow_html=True)
 
                 for r in results[:20]:
                     with st.expander(f"#{r['rank']} - {r['title']} @ {r['company']} ({r['score']:.4f})"):
@@ -481,7 +481,7 @@ def main():
                 st.markdown('<div class="gradient-divider"></div>', unsafe_allow_html=True)
                 csv_content = results_to_csv(results)
                 st.download_button(
-                    label="📥 Download Submission CSV",
+                    label=" Download Submission CSV",
                     data=csv_content,
                     file_name="submission.csv",
                     mime="text/csv",
@@ -494,7 +494,7 @@ def main():
             # Filter details
             if tier5 or honeypots:
                 st.markdown('<div class="gradient-divider"></div>', unsafe_allow_html=True)
-                st.markdown('<div class="section-header">🔍 Filter Details</div>', unsafe_allow_html=True)
+                st.markdown('<div class="section-header"> Filter Details</div>', unsafe_allow_html=True)
 
                 if tier5:
                     with st.expander(f"Irrelevant Titles Removed ({len(tier5)})"):
