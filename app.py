@@ -25,56 +25,51 @@ from config import TOP_N
 # =========================================================================
 CUSTOM_CSS = """
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
 /* Global */
 html, body, [class*="css"] {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Outfit', sans-serif;
 }
 
 /* Hero header */
 .hero-title {
     font-size: 2.8rem;
     font-weight: 800;
-    background: linear-gradient(135deg, #6366f1, #8b5cf6, #a855f7, #d946ef);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #eab308; /* Lemon yellow */
     margin-bottom: 0.2rem;
     letter-spacing: -0.02em;
 }
 
 .hero-subtitle {
     font-size: 1.15rem;
-    color: #94a3b8;
+    color: #475569;
     font-weight: 400;
     margin-bottom: 1.5rem;
 }
 
 /* Stat cards */
 .stat-card {
-    background: linear-gradient(145deg, rgba(99,102,241,0.12), rgba(139,92,246,0.06));
-    border: 1px solid rgba(139,92,246,0.2);
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
     border-radius: 16px;
     padding: 1.2rem 1.5rem;
     text-align: center;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 .stat-card:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(99,102,241,0.15);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 .stat-number {
     font-size: 2rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #818cf8, #a78bfa);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #eab308; /* Lemon yellow */
 }
 .stat-label {
     font-size: 0.8rem;
-    color: #94a3b8;
+    color: #64748b;
     text-transform: uppercase;
     letter-spacing: 0.08em;
     margin-top: 0.3rem;
@@ -88,20 +83,20 @@ html, body, [class*="css"] {
     margin: 1rem 0 1.5rem 0;
 }
 .feature-pill {
-    background: rgba(99,102,241,0.1);
-    border: 1px solid rgba(99,102,241,0.2);
+    background: #fef08a; /* Light lemon */
+    border: 1px solid #fde047;
     border-radius: 100px;
     padding: 0.35rem 0.9rem;
     font-size: 0.78rem;
-    color: #a5b4fc;
-    font-weight: 500;
+    color: #854d0e;
+    font-weight: 600;
 }
 
 /* Section headers */
 .section-header {
     font-size: 1.3rem;
     font-weight: 700;
-    color: #e2e8f0;
+    color: #334155;
     margin: 2rem 0 1rem 0;
     display: flex;
     align-items: center;
@@ -110,52 +105,52 @@ html, body, [class*="css"] {
 
 /* Result cards */
 .result-card {
-    background: linear-gradient(145deg, rgba(30,30,46,0.8), rgba(20,20,35,0.6));
-    border: 1px solid rgba(99,102,241,0.15);
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
     border-radius: 14px;
     padding: 1.2rem 1.5rem;
     margin-bottom: 0.8rem;
     transition: border-color 0.2s ease;
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
 }
 .result-card:hover {
-    border-color: rgba(139,92,246,0.4);
+    border-color: #facc15;
 }
 .result-rank {
     font-size: 0.75rem;
     font-weight: 700;
-    color: #6366f1;
+    color: #ca8a04;
     text-transform: uppercase;
     letter-spacing: 0.1em;
 }
 .result-title {
     font-size: 1.05rem;
     font-weight: 600;
-    color: #e2e8f0;
+    color: #1e293b;
     margin: 0.2rem 0;
 }
 .result-meta {
     font-size: 0.82rem;
-    color: #94a3b8;
+    color: #64748b;
 }
 .result-score {
     font-size: 1.4rem;
     font-weight: 700;
-    background: linear-gradient(135deg, #34d399, #6ee7b7);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    color: #22c55e;
 }
 
 /* Upload area */
 [data-testid="stFileUploader"] {
-    border: 2px dashed rgba(99,102,241,0.3) !important;
+    border: 2px dashed #facc15 !important;
     border-radius: 16px !important;
     padding: 1rem !important;
+    background-color: #fefce8;
 }
 
 /* Buttons */
 .stButton > button[kind="primary"] {
-    background: linear-gradient(135deg, #6366f1, #8b5cf6) !important;
+    background: #facc15 !important; /* Lemon */
+    color: #422006 !important;
     border: none !important;
     border-radius: 12px !important;
     padding: 0.6rem 2rem !important;
@@ -164,14 +159,14 @@ html, body, [class*="css"] {
     transition: all 0.2s ease !important;
 }
 .stButton > button[kind="primary"]:hover {
-    box-shadow: 0 6px 20px rgba(99,102,241,0.4) !important;
+    box-shadow: 0 6px 15px rgba(250, 204, 21, 0.4) !important;
     transform: translateY(-1px) !important;
 }
 
 /* Divider */
 .gradient-divider {
     height: 2px;
-    background: linear-gradient(90deg, transparent, rgba(99,102,241,0.4), rgba(168,85,247,0.4), transparent);
+    background: linear-gradient(90deg, transparent, #fde047, transparent);
     margin: 1.5rem 0;
     border: none;
 }
@@ -184,8 +179,8 @@ html, body, [class*="css"] {
     margin-bottom: 1rem;
 }
 .step-number {
-    background: linear-gradient(135deg, #6366f1, #8b5cf6);
-    color: white;
+    background: #facc15; /* Lemon */
+    color: #422006;
     font-weight: 700;
     font-size: 0.85rem;
     width: 28px;
@@ -197,12 +192,12 @@ html, body, [class*="css"] {
     flex-shrink: 0;
 }
 .step-text {
-    color: #cbd5e1;
+    color: #475569;
     font-size: 0.9rem;
     line-height: 1.5;
 }
 .step-text strong {
-    color: #e2e8f0;
+    color: #1e293b;
 }
 </style>
 """
